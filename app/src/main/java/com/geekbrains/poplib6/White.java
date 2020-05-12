@@ -2,11 +2,16 @@ package com.geekbrains.poplib6;
 
 import android.util.Log;
 
+import com.geekbrains.poplib6.dagger.App;
 
-class White{
-    private Green green;
-    White(Green inGreen) {
-        this.green = inGreen;
+import javax.inject.Inject;
+
+public class White{
+    @Inject
+    Green green;
+
+    White() {
+        App.getAppComponent().inject(this);
         Log.d("White","Green message="+green.show());
         Log.d("White","Green class="+green.toString());
     }
